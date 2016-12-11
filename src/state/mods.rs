@@ -14,6 +14,7 @@
 
 use std::ffi::{CString, CStr};
 
+use libc::c_char;
 use ffi::*;
 use {State, ModIndex};
 use state::Components;
@@ -41,10 +42,10 @@ pub enum Parameter {
 	Index(ModIndex),
 }
 
-impl<'a> From<&'a [u8]> for Parameter {
-	fn from(value: &[u8]) -> Parameter {
+impl From<*const c_char> for Parameter {
+	fn from(value: *const c_char) -> Parameter {
 		unsafe {
-			Parameter::Name(CStr::from_ptr(value.as_ptr() as *const _).to_owned())
+			Parameter::Name(CStr::from_ptr(value).to_owned())
 		}
 	}
 }

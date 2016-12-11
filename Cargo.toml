@@ -12,7 +12,7 @@ keywords    = ["xkb", "xkbcommon", "x11", "xcb"]
 [dependencies]
 bitflags      = "0.7"
 libc          = "0.2"
-xkbcommon-sys = "0.7"
+xkbcommon-sys = "0.7.3"
 
 [dependencies.xcb]
 version  = "0.7"
