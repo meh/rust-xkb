@@ -1,6 +1,6 @@
 [package]
 name    = "xkb"
-version = "0.1.1"
+version = "0.1.2"
 
 authors = ["meh. <meh@schizofreni.co>"]
 license = "WTFPL"
@@ -10,7 +10,7 @@ repository  = "https://github.com/meh/rust-xkb"
 keywords    = ["xkb", "xkbcommon", "x11", "xcb"]
 
 [dependencies]
-bitflags      = "0.7"
+bitflags      = "0.8"
 libc          = "0.2"
 xkbcommon-sys = "0.7.3"
 
