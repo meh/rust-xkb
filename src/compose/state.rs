@@ -104,8 +104,8 @@ impl Drop for State {
 }
 
 bitflags! {
-	pub flags Flags: xkb_compose_state_flags {
-		const NO_FLAGS = XKB_COMPOSE_STATE_NO_FLAGS,
+	pub struct Flags: xkb_compose_state_flags {
+		const NO_FLAGS = XKB_COMPOSE_STATE_NO_FLAGS;
 	}
 }
 

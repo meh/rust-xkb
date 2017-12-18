@@ -15,8 +15,8 @@
 use ffi::*;
 
 bitflags! {
-	pub flags Flags: xkb_compose_compile_flags {
-		const NO_FLAGS = XKB_COMPOSE_COMPILE_NO_FLAGS,
+	pub struct Flags: xkb_compose_compile_flags {
+		const NO_FLAGS = XKB_COMPOSE_COMPILE_NO_FLAGS;
 	}
 }
 

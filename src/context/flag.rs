@@ -15,10 +15,10 @@
 use ffi::*;
 
 bitflags! {
-	pub flags Flags: xkb_context_flags {
-		const NO_FLAGS             = XKB_CONTEXT_NO_FLAGS,
-		const NO_DEFAULT_INCLUDES  = XKB_CONTEXT_NO_DEFAULT_INCLUDES,
-		const NO_ENVIRONMENT_NAMES = XKB_CONTEXT_NO_ENVIRONMENT_NAMES,
+	pub struct Flags: xkb_context_flags {
+		const NO_FLAGS             = XKB_CONTEXT_NO_FLAGS;
+		const NO_DEFAULT_INCLUDES  = XKB_CONTEXT_NO_DEFAULT_INCLUDES;
+		const NO_ENVIRONMENT_NAMES = XKB_CONTEXT_NO_ENVIRONMENT_NAMES;
 	}
 }
 

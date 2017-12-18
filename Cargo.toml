@@ -10,12 +10,12 @@ repository  = "https://github.com/meh/rust-xkb"
 keywords    = ["xkb", "xkbcommon", "x11", "xcb"]
 
 [dependencies]
-bitflags      = "0.8"
+bitflags      = "0.9"
 libc          = "0.2"
-xkbcommon-sys = "0.7.3"
+xkbcommon-sys = "0.7"
 
 [dependencies.xcb]
-version  = "0.7"
+version  = "0.8"
 features = ["xkb"]
 optional = true
 

@@ -15,8 +15,8 @@
 use ffi::*;
 
 bitflags! {
-	pub flags Flags: xkb_keymap_compile_flags {
-		const NO_FLAGS = XKB_KEYMAP_COMPILE_NO_FLAGS,
+	pub struct Flags: xkb_keymap_compile_flags {
+		const NO_FLAGS = XKB_KEYMAP_COMPILE_NO_FLAGS;
 	}
 }
 

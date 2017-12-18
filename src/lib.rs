@@ -14,7 +14,7 @@
 
 #![allow(non_upper_case_globals)]
 
-#[macro_use(bitflags)]
+#[macro_use]
 extern crate bitflags;
 extern crate libc;
 extern crate xkbcommon_sys as ffi;
