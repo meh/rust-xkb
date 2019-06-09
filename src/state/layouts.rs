@@ -16,8 +16,8 @@ use std::ffi::{CString, CStr};
 
 use libc::c_char;
 use ffi::*;
-use {State, LayoutIndex};
-use state::Components;
+use crate::{State, LayoutIndex};
+use crate::state::Components;
 
 #[derive(Debug)]
 pub struct Layouts<'a>(pub &'a State);

@@ -13,6 +13,7 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
+use bitflags::bitflags;
 
 bitflags! {
 	pub struct Components: xkb_state_component {
@@ -27,3 +28,13 @@ bitflags! {
 		const LEDS             = XKB_STATE_LEDS;
 	}
 }
+
+pub const MODS_DEPRESSED: Components   = Components::MODS_DEPRESSED;
+pub const MODS_LATCHED: Components     = Components::MODS_LATCHED;
+pub const MODS_LOCKED: Components      = Components::MODS_LOCKED;
+pub const MODS_EFFECTIVE: Components   = Components::MODS_EFFECTIVE;
+pub const LAYOUT_DEPRESSED: Components = Components::LAYOUT_DEPRESSED;
+pub const LAYOUT_LATCHED: Components   = Components::LAYOUT_LATCHED;
+pub const LAYOUT_LOCKED: Components    = Components::LAYOUT_LOCKED;
+pub const LAYOUT_EFFECTIVE: Components = Components::LAYOUT_EFFECTIVE;
+pub const LEDS: Components             = Components::LEDS;

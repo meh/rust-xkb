@@ -15,8 +15,8 @@
 use std::ptr;
 
 use ffi::*;
-use {Keymap, Keycode, Keysym};
-use {LayoutIndex, LevelIndex};
+use crate::{Keymap, Keycode, Keysym};
+use crate::{LayoutIndex, LevelIndex};
 
 #[derive(Debug)]
 pub struct Key<'a>(pub &'a Keymap, pub Keycode);

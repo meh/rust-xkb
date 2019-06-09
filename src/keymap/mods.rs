@@ -15,7 +15,7 @@
 use std::ffi::{CStr, CString};
 
 use ffi::*;
-use keymap::Keymap;
+use crate::keymap::Keymap;
 
 #[derive(Debug)]
 pub struct Mods<'a>(pub &'a Keymap);

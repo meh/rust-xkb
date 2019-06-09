@@ -18,9 +18,9 @@ use std::ffi::CStr;
 
 use libc::size_t;
 use ffi::*;
-use {State, Keycode, Keysym};
-use {LayoutIndex, LevelIndex, ModMask};
-use state::Consumed;
+use crate::{State, Keycode, Keysym};
+use crate::{LayoutIndex, LevelIndex, ModMask};
+use crate::state::Consumed;
 
 #[derive(Debug)]
 pub struct Key<'a>(pub &'a State, pub Keycode);

@@ -17,8 +17,9 @@ use std::ffi::CStr;
 
 use libc::size_t;
 use ffi::*;
-use Keysym;
-use compose::{Table, Result, Status};
+use bitflags::bitflags;
+use crate::Keysym;
+use crate::compose::{Table, Result, Status};
 
 pub struct State(*mut xkb_compose_state);
 
@@ -108,6 +109,8 @@ bitflags! {
 		const NO_FLAGS = XKB_COMPOSE_STATE_NO_FLAGS;
 	}
 }
+
+pub const NO_FLAGS: Flags = Flags::NO_FLAGS;
 
 impl Default for Flags {
 	fn default() -> Self {

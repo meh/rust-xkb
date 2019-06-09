@@ -16,8 +16,8 @@ use std::mem;
 
 use libc::c_int;
 use ffi::*;
-use LogLevel;
-use context::Context;
+use crate::LogLevel;
+use crate::context::Context;
 
 #[derive(Debug)]
 pub struct Log<'a>(pub &'a mut Context);

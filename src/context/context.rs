@@ -13,7 +13,7 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use context::{Flags, Include, Log};
+use crate::context::{Flags, Include, Log};
 
 #[derive(Debug)]
 pub struct Context(*mut xkb_context);

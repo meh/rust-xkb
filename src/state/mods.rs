@@ -16,8 +16,8 @@ use std::ffi::{CString, CStr};
 
 use libc::c_char;
 use ffi::*;
-use {State, ModIndex};
-use state::Components;
+use crate::{State, ModIndex};
+use crate::state::Components;
 
 #[derive(Debug)]
 pub struct Mods<'a>(pub &'a State);

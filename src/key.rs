@@ -13,7 +13,7 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use Keysym;
+use crate::Keysym;
 
 #[repr(C)]
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]

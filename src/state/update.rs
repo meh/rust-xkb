@@ -15,8 +15,8 @@
 use std::mem;
 
 use ffi::*;
-use {key, Keycode, ModMask, LayoutMask};
-use state::{State, Components};
+use crate::{key, Keycode, ModMask, LayoutMask};
+use crate::state::{State, Components};
 
 #[derive(Debug)]
 pub struct Update<'a>(pub &'a mut State);

@@ -17,9 +17,9 @@ use std::ffi::CString;
 
 use libc::size_t;
 use ffi::*;
-use Context;
-use compose::{compile, Format};
-use compose::state::{self, State};
+use crate::Context;
+use crate::compose::{compile, Format};
+use crate::compose::state::{self, State};
 
 pub struct Table(*mut xkb_compose_table);
 

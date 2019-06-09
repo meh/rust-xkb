@@ -15,7 +15,7 @@
 use std::ffi::{CString, CStr};
 
 use ffi::*;
-use {State, LedIndex};
+use crate::{State, LedIndex};
 
 #[derive(Debug)]
 pub struct Leds<'a>(pub &'a State);

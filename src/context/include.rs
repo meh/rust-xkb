@@ -16,7 +16,7 @@ use std::os::unix::ffi::OsStrExt;
 use std::path::Path;
 
 use ffi::*;
-use context::Context;
+use crate::context::Context;
 
 #[derive(Debug)]
 pub struct Include<'a>(pub &'a mut Context);

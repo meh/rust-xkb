@@ -13,9 +13,9 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use Keycode;
-use keymap::{Mods, Layouts, Leds, Key};
-use state::State;
+use crate::Keycode;
+use crate::keymap::{Mods, Layouts, Leds, Key};
+use crate::state::State;
 
 #[derive(Debug)]
 pub struct Keymap(*mut xkb_keymap);

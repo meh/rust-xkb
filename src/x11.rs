@@ -14,9 +14,9 @@
 
 use xcb;
 use ffi::*;
-use {Keycode, ModMask, LayoutMask};
-use {Context, Keymap, State};
-use keymap::compile;
+use crate::{Keycode, ModMask, LayoutMask};
+use crate::{Context, Keymap, State};
+use crate::keymap::compile;
 
 pub const MIN_MAJOR_XKB_VERSION: u16 = XKB_X11_MIN_MAJOR_XKB_VERSION as u16;
 pub const MIN_MINOR_XKB_VERSION: u16 = XKB_X11_MIN_MINOR_XKB_VERSION as u16;

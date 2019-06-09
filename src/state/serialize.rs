@@ -13,8 +13,8 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use {ModMask, LayoutIndex};
-use state::{State, Components};
+use crate::{ModMask, LayoutIndex};
+use crate::state::{State, Components};
 
 #[derive(Debug)]
 pub struct Serialize<'a>(pub &'a mut State);

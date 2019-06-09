@@ -13,8 +13,8 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use {Keymap, Keycode};
-use state::{Key, Serialize, Update, Mods, Layouts, Leds};
+use crate::{Keymap, Keycode};
+use crate::state::{Key, Serialize, Update, Mods, Layouts, Leds};
 
 #[derive(Debug)]
 pub struct State(*mut xkb_state);
