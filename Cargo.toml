@@ -16,7 +16,7 @@ libc     = "0.2"
 ffi      = { package = "xkbcommon-sys", version = "0.7" }
 
 [dependencies.xcb]
-version  = "0.8"
+version  = "0.9"
 features = ["xkb"]
 optional = true
 
