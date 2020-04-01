@@ -13,6 +13,7 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
+use std::ffi::CStr;
 use crate::Keycode;
 use crate::keymap::{Mods, Layouts, Leds, Key};
 use crate::state::State;
@@ -21,10 +22,17 @@ use crate::state::State;
 pub struct Keymap(*mut xkb_keymap);
 
 impl Keymap {
-	pub fn from_str(s: &str) -> Option<Self> {
+	pub fn from_str(s: &CStr) -> Option<Self> {
 		unsafe{
 			let context = xkb_context_new(0);
-			let ptr = xkb_keymap_new_from_string(context, s.as_bytes().as_ptr() as *const _ as *const std::os::raw::c_char, xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_v1, 0);
+			if context == std::ptr::null_mut(){
+				return None;
+			}
+
+			let ptr = xkb_keymap_new_from_string(context, s.to_bytes().as_ptr() as *const _ as *const std::os::raw::c_char, xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_v1, 0);
+
+			xkb_context_unref(context);
+
 			if ptr == std::ptr::null_mut(){
 				None
 			}
