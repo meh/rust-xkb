@@ -35,10 +35,10 @@ impl FromStr for Keymap{
 impl Keymap {
 	pub fn from_str(context: &Context, s: &str) -> Result<Self, ()> {
 		unsafe{
-			let mut v = s.as_bytes().to_vec();
-			v.push('\0' as u8);
-
-			let cstring = CString::from_vec_unchecked(v);
+			let cstring = match CString::new(s.to_owned()){
+				Ok(s) => s,
+				Err(_) => return Err(()),
+			};
 			let ptr = xkb_keymap_new_from_string(context.as_ptr(), cstring.as_ptr() as *const _ as *const std::os::raw::c_char, xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_v1, 0);
 
 			if ptr.is_null(){
