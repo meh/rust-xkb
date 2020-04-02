@@ -13,25 +13,34 @@
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 use ffi::*;
-use std::ffi::CStr;
 use crate::Keycode;
 use crate::keymap::{Mods, Layouts, Leds, Key};
 use crate::context::Context;
 use crate::state::State;
+use std::str::FromStr;
 
 #[derive(Debug)]
 pub struct Keymap(*mut xkb_keymap);
 
+impl FromStr for Keymap{
+	type Err = ();
+
+	fn from_str(s: &str) -> Result<Keymap, Self::Err>{
+		let context = Context::default();
+		Keymap::from_str(&context, s)
+	}
+}
+
 impl Keymap {
-	pub fn from_str(context: &Context, s: &CStr) -> Option<Self> {
+	pub fn from_str(context: &Context, s: &str) -> Result<Self, ()> {
 		unsafe{
-			let ptr = xkb_keymap_new_from_string(context.as_ptr(), s.to_bytes().as_ptr() as *const _ as *const std::os::raw::c_char, xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_v1, 0);
+			let ptr = xkb_keymap_new_from_string(context.as_ptr(), s.as_ptr() as *const _ as *const std::os::raw::c_char, xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_v1, 0);
 
 			if ptr == std::ptr::null_mut(){
-				None
+				Err(())
 			}
 			else{
-				Some(Self::from_ptr(ptr))
+				Ok(Self::from_ptr(ptr))
 			}
 		}
 	}
