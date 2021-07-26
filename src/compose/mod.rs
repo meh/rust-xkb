@@ -12,6 +12,8 @@
 //
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
+use ffi::*;
+
 mod table;
 pub use self::table::Table;
 
@@ -39,5 +41,5 @@ pub enum Result {
 #[repr(C)]
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]
 pub enum Format {
-	TextV1,
+	TextV1 = xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_V1 as isize,
 }
