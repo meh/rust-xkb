@@ -62,7 +62,7 @@ pub struct Iter<'a> {
 impl<'a> Iter<'a> {
 	fn new(inner: &'a Layouts<'a>) -> Iter<'a> {
 		Iter {
-			inner:   inner,
+			inner,
 			current: 0,
 			length:  inner.len() as xkb_layout_index_t,
 		}
