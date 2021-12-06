@@ -23,7 +23,7 @@ pub struct Layouts<'a>(pub &'a Keymap);
 impl<'a> Layouts<'a> {
 	pub fn len(&self) -> usize {
 		unsafe {
-			xkb_keymap_num_mods(self.0.as_ptr()) as usize
+			xkb_keymap_num_layouts(self.0.as_ptr()) as usize
 		}
 	}
 
