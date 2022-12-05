@@ -42,7 +42,7 @@ impl<'a> Key<'a> {
 
 	pub fn syms(&self, layout: LayoutIndex, level: LevelIndex) -> Vec<Keysym> {
 		unsafe {
-			let mut syms = ptr::null_mut();
+			let mut syms = ptr::null();
 			let     len  = xkb_keymap_key_get_syms_by_level(self.0.as_ptr(), self.1.into(),
 				layout.into(), level.into(), &mut syms);
 

@@ -90,7 +90,7 @@ impl Clone for State {
 	#[inline]
 	fn clone(&self) -> Self {
 		unsafe {
-			State(xkb_compose_table_ref(self.0))
+			State(xkb_compose_state_ref(self.0))
 		}
 	}
 }

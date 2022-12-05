@@ -41,5 +41,5 @@ pub enum Result {
 #[repr(C)]
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]
 pub enum Format {
-	TextV1 = xkb_keymap_format::XKB_KEYMAP_FORMAT_TEXT_V1 as isize,
+	TextV1 = XKB_KEYMAP_FORMAT_TEXT_V1 as isize,
 }

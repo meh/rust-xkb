@@ -98,7 +98,7 @@ impl<'a> Key<'a> {
 	#[inline]
 	pub fn syms(&self) -> Vec<Keysym> {
 		unsafe {
-			let mut syms = ptr::null_mut();
+			let mut syms = ptr::null();
 			let     len  = xkb_state_key_get_syms(self.0.as_ptr(), self.1.into(), &mut syms);
 
 			let mut result = Vec::with_capacity(len as usize);
