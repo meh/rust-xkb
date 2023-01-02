@@ -15,11 +15,10 @@ bitflags = "1"
 libc     = "0.2"
 ffi      = { package = "xkbcommon-sys", version = "1.4.1" }
 
-[dependencies.xcb]
+[dependencies.as-raw-xcb-connection]
 version  = "1"
-features = ["xkb"]
 optional = true
 
 [features]
 static = ["ffi/static"]
-x11    = ["ffi/x11", "xcb"]
+x11    = ["ffi/x11", "as-raw-xcb-connection"]

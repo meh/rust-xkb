@@ -14,9 +14,6 @@
 
 #![allow(non_upper_case_globals)]
 
-#[cfg(feature = "x11")]
-extern crate xcb;
-
 #[macro_use]
 mod base;
 pub use self::base::*;

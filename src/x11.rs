@@ -12,7 +12,7 @@
 //
 //  0. You just DO WHAT THE FUCK YOU WANT TO.
 
-use xcb;
+use as_raw_xcb_connection::AsRawXcbConnection;
 use ffi::*;
 use crate::{Keycode, ModMask, LayoutMask};
 use crate::{Context, Keymap, State};
@@ -52,9 +52,9 @@ impl From<i16> for LayoutMask {
 }
 
 #[inline]
-pub fn device(connection: &xcb::Connection) -> Result<i32, ()> {
+pub fn device(connection: &impl AsRawXcbConnection) -> Result<i32, ()> {
 	unsafe {
-		match xkb_x11_get_core_keyboard_device_id(connection.get_raw_conn() as *mut _) {
+		match xkb_x11_get_core_keyboard_device_id(connection.as_raw_xcb_connection() as *mut _) {
 			-1 => Err(()),
 			id => Ok(id)
 		}
@@ -62,17 +62,17 @@ pub fn device(connection: &xcb::Connection) -> Result<i32, ()> {
 }
 
 #[inline]
-pub fn keymap(connection: &xcb::Connection, device: i32, context: &Context, flags: compile::Flags) -> Result<Keymap, ()> {
+pub fn keymap(connection: &impl AsRawXcbConnection, device: i32, context: &Context, flags: compile::Flags) -> Result<Keymap, ()> {
 	unsafe {
-		xkb_x11_keymap_new_from_device(context.as_ptr(), connection.get_raw_conn() as *mut _, device, flags.bits())
+		xkb_x11_keymap_new_from_device(context.as_ptr(), connection.as_raw_xcb_connection() as *mut _, device, flags.bits())
 			.as_mut().map(|ptr| Keymap::from_ptr(ptr)).ok_or(())
 	}
 }
 
 #[inline]
-pub fn state(connection: &xcb::Connection, device: i32, keymap: &Keymap) -> Result<State, ()> {
+pub fn state(connection: &impl AsRawXcbConnection, device: i32, keymap: &Keymap) -> Result<State, ()> {
 	unsafe {
-		xkb_x11_state_new_from_device(keymap.as_ptr(), connection.get_raw_conn() as *mut _, device)
+		xkb_x11_state_new_from_device(keymap.as_ptr(), connection.as_raw_xcb_connection() as *mut _, device)
 			.as_mut().map(|ptr| State::from_ptr(ptr)).ok_or(())
 	}
 }
